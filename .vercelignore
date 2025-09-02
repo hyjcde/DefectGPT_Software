@@ -1,0 +1,7 @@
+# Ignore root level files that might confuse Vercel
+README.md
+docs/
+*.md
+
+# Only build from the electronic-file directory
+!demo/electronic-file/**
