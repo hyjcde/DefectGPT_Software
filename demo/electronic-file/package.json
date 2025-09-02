@@ -32,7 +32,12 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "browser": true
+    },
+    "globals": {
+      "Cesium": "readonly",
+      "IonResource": "readonly"
     },
     "extends": [
       "plugin:vue/essential",

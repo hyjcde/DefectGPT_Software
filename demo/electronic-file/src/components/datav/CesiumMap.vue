@@ -3,24 +3,32 @@
 </template>
 
 <script>
-import * as Cesium from 'cesium';
+import * as Cesium from 'cesium'
 
 export default {
   name: 'CesiumMap',
-  mounted() {
-    this.initCesium();
+  data () {
+    return {
+      viewer: null
+    }
+  },
+  mounted () {
+    this.initCesium()
   },
   methods: {
-    initCesium() {
+    initCesium () {
       // 创建 Cesium Viewer 实例
       const viewer = new Cesium.Viewer('cesiumContainer', {
         terrainProvider: Cesium.createWorldTerrain()
-      });
+      })
+
+      // 存储viewer实例以供后续使用
+      this.viewer = viewer
 
       // 可以在这里添加更多的 Cesium 配置和初始化代码
     }
   }
-};
+}
 </script>
 
 <style>
