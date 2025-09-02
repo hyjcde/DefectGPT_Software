@@ -12,20 +12,37 @@ module.exports = {
         ? {
             splitChunks: {
               chunks: "all",
+              minSize: 30000, // 30KB
+              maxSize: 1000000, // 1MB
               cacheGroups: {
                 cesium: {
                   name: "cesium",
                   test: /[\\/]node_modules[\\/]cesium[\\/]/,
                   chunks: "all",
-                  priority: 20,
+                  priority: 30,
+                  enforce: true,
                 },
-                vendor: {
+                vendors: {
                   name: "chunk-vendors",
-                  test: /[\\/]node_modules[\\/]/,
+                  test: /[\\/]node_modules[\\/](?!cesium)/,
                   chunks: "all",
                   priority: 10,
+                  minChunks: 1,
+                  maxInitialRequests: 5,
+                  maxAsyncRequests: 8,
+                },
+                common: {
+                  name: "chunk-common",
+                  test: /[\\/]node_modules[\\/]/,
+                  chunks: "all",
+                  priority: 5,
+                  minChunks: 2,
+                  reuseExistingChunk: true,
                 },
               },
+            },
+            runtimeChunk: {
+              name: "runtime",
             },
           }
         : {},
