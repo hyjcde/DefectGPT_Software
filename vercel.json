@@ -1,9 +1,12 @@
 {
     "version": 2,
+    "name": "electronic-file",
     "buildCommand": "cd demo/electronic-file && npm run build",
     "outputDirectory": "demo/electronic-file/dist",
     "installCommand": "cd demo/electronic-file && npm install",
-    "framework": "vue",
+    "framework": null,
+    "functions": {},
+    "regions": ["iad1"],
     "routes": [{
         "src": "/(.*)",
         "dest": "/index.html"
