@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "buildCommand": "cd demo/electronic-file && npm run build",
+    "outputDirectory": "demo/electronic-file/dist",
+    "installCommand": "cd demo/electronic-file && npm install",
+    "framework": "vue",
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "/index.html"
+    }],
+    "headers": [{
+        "source": "/(.*)",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+        }]
+    }]
+}
