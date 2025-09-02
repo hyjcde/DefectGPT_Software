@@ -1,9 +1,9 @@
 <template>
   <div class="left-chart-2">
-    <div class="lc2-header">李四收费站</div>
-    <div class="lc2-details">设备运行总数<span>245</span></div>
-    <dv-charts class="lc2-chart" :option="option" />
-    <dv-decoration-2 style="height:10px;" />
+    <div class="lc2-header">Defect Type Distribution</div>
+    <div class="lc2-details">Total Defects: <span>1523</span></div>
+    <dv-charts class="lc2-chart" :option="option"/>
+    <dv-decoration-2 style="height:10px;"/>
   </div>
 </template>
 
@@ -17,11 +17,11 @@ export default {
           {
             type: 'pie',
             data: [
-              { name: '收费系统', value: 93 },
-              { name: '通信系统', value: 32 },
-              { name: '监控系统', value: 65 },
-              { name: '供配电系统', value: 44 },
-              { name: '其他', value: 52 }
+              { name: 'Cracks', value: 412 },
+              { name: 'Stains', value: 375 },
+              { name: 'Corrosion', value: 286 },
+              { name: 'Spalling', value: 224 },
+              { name: 'Others', value: 226 }
             ],
             radius: ['45%', '65%'],
             insideLabel: {
@@ -37,7 +37,7 @@ export default {
             }
           }
         ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b']
+        color: ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff']
       }
     }
   }
@@ -50,13 +50,18 @@ export default {
   height: 30%;
   display: flex;
   flex-direction: column;
+  background-color: rgba(14, 22, 40, 0.7);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 
   .lc2-header {
-    height: 20px;
-    line-height: 20px;
-    font-size: 16px;
-    text-indent: 20px;
-    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ecf0f1;
+    margin-bottom: 15px;
   }
 
   .lc2-details {
@@ -64,18 +69,23 @@ export default {
     font-size: 16px;
     display: flex;
     align-items: center;
-    text-indent: 20px;
+    color: #bdc3c7;
 
     span {
-      color: #096dd9;
+      color: #4cd137;
       font-weight: bold;
-      font-size: 35px;
-      margin-left: 20px;
+      font-size: 32px;
+      margin-left: 10px;
     }
   }
 
   .lc2-chart {
-    height: calc(~"100% - 80px");
+    flex: 1;
+    margin-top: 15px;
+  }
+
+  :deep(.dv-decoration-2) {
+    margin-top: 20px;
   }
 }
 </style>

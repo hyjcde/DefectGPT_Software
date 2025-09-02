@@ -1,11 +1,11 @@
 <template>
   <div class="right-chart-2">
-    <div class="rc1-header">孙七收费站</div>
+    <div class="rc1-header">Defect Distribution by Severity</div>
 
     <div class="rc1-chart-container">
       <div class="left">
-        <div class="number">267</div>
-        <div>设备运行总数</div>
+        <div class="number">1523</div>
+        <div>Total Defects</div>
       </div>
 
       <dv-charts class="right" :option="option" />
@@ -23,11 +23,10 @@ export default {
           {
             type: 'pie',
             data: [
-              { name: '收费系统', value: 93 },
-              { name: '通信系统', value: 66 },
-              { name: '监控系统', value: 52 },
-              { name: '供配电系统', value: 34 },
-              { name: '其他', value: 22 }
+              { name: 'Critical', value: 152 },
+              { name: 'Major', value: 457 },
+              { name: 'Minor', value: 685 },
+              { name: 'Cosmetic', value: 229 }
             ],
             radius: ['45%', '65%'],
             insideLabel: {
@@ -43,7 +42,7 @@ export default {
             }
           }
         ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b']
+        color: ['#FF4136', '#FF851B', '#FFDC00', '#2ECC40']
       }
     }
   }

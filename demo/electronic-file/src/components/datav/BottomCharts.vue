@@ -1,14 +1,14 @@
 <template>
   <div class="bottom-charts">
     <div class="bc-chart-item">
-      <div class="bcci-header">赵钱收费站</div>
+      <div class="bcci-header">Overall Defects Distribution</div>
       <dv-active-ring-chart :config="config1" />
       <Label-Tag :config="labelConfig" />
     </div>
     <dv-decoration-2 class="decoration-1" :reverse="true" style="width:5px;" />
 
     <div class="bc-chart-item">
-      <div class="bcci-header">孙李收费站</div>
+      <div class="bcci-header">North Façade Defects</div>
       <dv-active-ring-chart :config="config2" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -16,7 +16,7 @@
     <dv-decoration-2 class="decoration-2" :reverse="true" style="width:5px;" />
 
     <div class="bc-chart-item">
-      <div class="bcci-header">周吴收费站</div>
+      <div class="bcci-header">East Façade Defects</div>
       <dv-active-ring-chart :config="config3" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -24,7 +24,7 @@
     <dv-decoration-2 class="decoration-3" :reverse="true" style="width:5px;" />
 
     <div class="bc-chart-item">
-      <div class="bcci-header">郑王收费站</div>
+      <div class="bcci-header">South Façade Defects</div>
       <dv-active-ring-chart :config="config4" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -45,19 +45,19 @@ export default {
       config1: {
         data: [
           {
-            name: '收费站',
+            name: 'Cracks',
             value: 356
           },
           {
-            name: '监控中心',
+            name: 'Spalling',
             value: 215
           },
           {
-            name: '道路外场',
+            name: 'Moisture',
             value: 90
           },
           {
-            name: '其他',
+            name: 'Other',
             value: 317
           }
         ],
@@ -69,19 +69,19 @@ export default {
       config2: {
         data: [
           {
-            name: '收费站',
+            name: 'Cracks',
             value: 615
           },
           {
-            name: '监控中心',
+            name: 'Spalling',
             value: 322
           },
           {
-            name: '道路外场',
+            name: 'Moisture',
             value: 198
           },
           {
-            name: '其他',
+            name: 'Other',
             value: 80
           }
         ],
@@ -93,19 +93,19 @@ export default {
       config3: {
         data: [
           {
-            name: '收费站',
+            name: 'Cracks',
             value: 452
           },
           {
-            name: '监控中心',
+            name: 'Spalling',
             value: 512
           },
           {
-            name: '道路外场',
+            name: 'Moisture',
             value: 333
           },
           {
-            name: '其他',
+            name: 'Other',
             value: 255
           }
         ],
@@ -117,19 +117,19 @@ export default {
       config4: {
         data: [
           {
-            name: '收费站',
+            name: 'Cracks',
             value: 156
           },
           {
-            name: '监控中心',
+            name: 'Spalling',
             value: 415
           },
           {
-            name: '道路外场',
+            name: 'Moisture',
             value: 90
           },
           {
-            name: '其他',
+            name: 'Other',
             value: 210
           }
         ],
@@ -139,7 +139,7 @@ export default {
       },
 
       labelConfig: {
-        data: ['收费站', '监控中心', '道路外场', '其他']
+        data: ['Cracks', 'Spalling', 'Moisture', 'Other']
       }
     }
   }

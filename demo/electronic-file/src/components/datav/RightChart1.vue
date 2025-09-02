@@ -1,11 +1,11 @@
 <template>
   <div class="right-chart-1">
-    <div class="rc1-header">赵六收费站</div>
+    <div class="rc1-header">Defect Types by Material</div>
 
     <div class="rc1-chart-container">
       <div class="left">
         <div class="number">262</div>
-        <div>设备运行总数</div>
+        <div class="label">Total Defects</div>
       </div>
 
       <dv-capsule-chart class="right" :config="config" />
@@ -20,28 +20,14 @@ export default {
     return {
       config: {
         data: [
-          {
-            name: '收费系统',
-            value: 25
-          },
-          {
-            name: '通信系统',
-            value: 66
-          },
-          {
-            name: '监控系统',
-            value: 123
-          },
-          {
-            name: '供配电系统',
-            value: 72
-          },
-          {
-            name: '其他',
-            value: 99
-          }
+          { name: 'Concrete', value: 125 },
+          { name: 'Steel', value: 66 },
+          { name: 'Glass', value: 23 },
+          { name: 'Masonry', value: 72 },
+          { name: 'Others', value: 19 }
         ],
-        unit: '件'
+        unit: 'defects',
+        colors: ['#3498db', '#e74c3c', '#f1c40f', '#2ecc71', '#9b59b6']
       }
     }
   }
@@ -54,40 +40,64 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: rgba(16, 24, 43, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 
   .rc1-header {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
-    height: 30px;
-    line-height: 30px;
+    color: #ecf0f1;
+    margin-bottom: 20px;
   }
 
   .rc1-chart-container {
     flex: 1;
     display: flex;
+    align-items: center;
   }
 
   .left {
     width: 30%;
-    font-size: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 20px;
+    border-right: 1px solid rgba(236, 240, 241, 0.1);
 
     .number {
-      font-size: 34px;
-      color: #096dd9;
+      font-size: 40px;
+      color: #3498db;
       font-weight: bold;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-size: 16px;
+      color: #bdc3c7;
     }
   }
 
   .right {
     flex: 1;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
+    padding-left: 20px;
+
+    :deep(.capsule-chart) {
+      .unit {
+        fill: #bdc3c7;
+      }
+      .capsule-item {
+        .label {
+          fill: #ecf0f1;
+        }
+        .value {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
   }
 }
 </style>

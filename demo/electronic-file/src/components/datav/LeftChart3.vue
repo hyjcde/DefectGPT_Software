@@ -1,8 +1,8 @@
 <template>
-  <div class="left-chart-3">
-    <div class="lc3-header">王五收费站</div>
-    <div class="lc3-details">设备运行总数<span>245</span></div>
-    <dv-capsule-chart class="lc3-chart" :config="config" />
+  <div className="left-chart-3">
+    <div className="lc3-header">Defect Distribution by Building Age</div>
+    <div className="lc3-details">Total Buildings Analyzed: <span>245</span></div>
+    <dv-capsule-chart className="lc3-chart" :config="config"/>
   </div>
 </template>
 
@@ -13,29 +13,14 @@ export default {
     return {
       config: {
         data: [
-          {
-            name: '收费系统',
-            value: 78
-          },
-          {
-            name: '通信系统',
-            value: 54
-          },
-          {
-            name: '监控系统',
-            value: 123
-          },
-          {
-            name: '供配电系统',
-            value: 167
-          },
-          {
-            name: '其他',
-            value: 77
-          }
+          { name: '0-10 years', value: 78 },
+          { name: '11-20 years', value: 54 },
+          { name: '21-30 years', value: 123 },
+          { name: '31-40 years', value: 167 },
+          { name: '40+ years', value: 77 }
         ],
-        colors: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        unit: '件'
+        colors: ['#2ECC40', '#3DE7C9', '#FFDC00', '#FF851B', '#FF4136'],
+        unit: 'buildings'
       }
     }
   }
@@ -48,13 +33,18 @@ export default {
   height: 33%;
   display: flex;
   flex-direction: column;
+  background-color: rgba(15, 23, 42, 0.75);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 
   .lc3-header {
-    height: 20px;
-    line-height: 20px;
-    font-size: 16px;
-    text-indent: 20px;
-    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e2e8f0;
+    margin-bottom: 15px;
   }
 
   .lc3-details {
@@ -62,18 +52,37 @@ export default {
     font-size: 16px;
     display: flex;
     align-items: center;
-    text-indent: 20px;
+    color: #94a3b8;
+    margin-bottom: 20px;
 
     span {
-      color: #096dd9;
+      color: #38bdf8;
       font-weight: bold;
-      font-size: 35px;
-      margin-left: 20px;
+      font-size: 32px;
+      margin-left: 10px;
     }
   }
 
   .lc3-chart {
     flex: 1;
+
+    :deep(.capsule-chart) {
+      .unit {
+        font-size: 14px;
+        fill: #94a3b8;
+      }
+
+      .capsule-item {
+        .label {
+          fill: #e2e8f0;
+        }
+
+        .value {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
   }
 }
 </style>

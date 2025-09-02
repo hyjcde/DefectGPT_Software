@@ -2,13 +2,15 @@
   <div id="data-view">
     <dv-full-screen-container>
       <div class="main-header">
-        <div class="mh-left">技术支持:<a href="https://github.com/jiaming743/DataV">https://github.com/jiaming743/DataV</a></div>
-        <div class="mh-middle">机电设备电子档案</div>
+        <div class="mh-middle" style="margin: 0 200px 10px; font-family: 'Arial', sans-serif; font-size: 28px; font-weight: 700; width: 60%;">
+          Integrated GeoBIM Analytics and Digital Twin Platform
+        </div>
+
         <div class="mh-right">
           <dv-border-box-2
-            style="width: 120px; height: 50px; line-height: 50px; text-align:center;margin-left:200px;"
+            style="width: 300px; height: 60px; font-weight: 700; line-height: 60px; text-align:center; margin-left:20px;"
           >
-            综合管理台
+            USR@CUHK & CU-Tech Ltd.
           </dv-border-box-2>
         </div>
       </div>
@@ -56,8 +58,8 @@
     </dv-full-screen-container>
   </div>
 </template>
-
 <script>
+
 import LeftChart1 from './LeftChart1'
 import LeftChart2 from './LeftChart2'
 import LeftChart3 from './LeftChart3'

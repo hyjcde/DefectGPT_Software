@@ -1,7 +1,7 @@
 <template>
   <div class="left-chart-1">
-    <div class="lc1-header">张三收费站</div>
-    <div class="lc1-details">设备运行总数<span>430</span></div>
+    <div class="lc1-header" style="font-size: 18px;font-weight: 600;">Building Façade Analysis</div>
+    <div class="lc1-details">Total Defects Detected: <span>430</span></div>
     <dv-capsule-chart class="lc1-chart" :config="config" />
     <dv-decoration-2 style="height:10px;" />
   </div>
@@ -15,28 +15,28 @@ export default {
       config: {
         data: [
           {
-            name: '收费系统',
+            name: 'Cracks',
             value: 167
           },
           {
-            name: '通信系统',
+            name: 'Spalling',
             value: 67
           },
           {
-            name: '监控系统',
+            name: 'Moisture',
             value: 123
           },
           {
-            name: '供配电系统',
+            name: 'Corrosion',
             value: 55
           },
           {
-            name: '其他',
-            value: 98
+            name: 'Other',
+            value: 18
           }
         ],
         colors: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        unit: '件'
+        unit: 'defects'
       }
     }
   }

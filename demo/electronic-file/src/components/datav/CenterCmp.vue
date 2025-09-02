@@ -1,182 +1,151 @@
 <template>
-  <div class="center-cmp">
-    <div class="cc-header">
-      <dv-decoration-1 style="width:200px;height:50px;" />
-      <div>机电设备总数</div>
-      <dv-decoration-1 style="width:200px;height:50px;" />
-    </div>
+  <div class="cesium-container" >
 
-    <div class="cc-details">
-      <div>设备总数</div>
-      <div class="card">2</div>
-      <div class="card">1</div>
-      <div class="card">3</div>
-      <div class="card">7</div>
-    </div>
+    <iframe style="z-index: -300; margin-left: 7px; margin-top: 5px;" title="Goodman inspection" width="690" height="510" src="https://ion.cesium.com/stories/viewer/?id=f618971e-1723-4147-add5-2deda8aa5ca7" frameborder="0" allow="fullscreen" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-    <div class="cc-main-container">
-      <div class="ccmc-left">
-        <div class="station-info">
-          收费站<span>1315</span>
-        </div>
-        <div class="station-info">
-          监控中心<span>415</span>
-        </div>
-      </div>
+    <LabelTag :config="labelConfig" />
 
-      <dv-active-ring-chart class="ccmc-middle" :config="config" />
 
-      <div class="ccmc-right">
-        <div class="station-info">
-          <span>90</span>道路外场
-        </div>
-        <div class="station-info">
-          <span>317</span>其他
-        </div>
-      </div>
-
-      <LabelTag :config="labelConfig" />
-    </div>
   </div>
 </template>
 
 <script>
-import LabelTag from './LabelTag'
-
 export default {
-  name: 'CenterCmp',
-  components: {
-    LabelTag
-  },
-  data () {
+  name: 'CesiumViewer',
+  data() {
     return {
-      config: {
-        data: [
-          {
-            name: '收费站',
-            value: 1315
-          },
-          {
-            name: '监控中心',
-            value: 415
-          },
-          {
-            name: '道路外场',
-            value: 90
-          },
-          {
-            name: '其他',
-            value: 317
-          }
-        ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        lineWidth: 30,
-        radius: '55%',
-        activeRadius: '60%'
-      },
-
+      storyAssetId: 'ea96074a-db47-498b-a503-1761d78315f8', // 这是您Story的ID
+      viewer: null,
+      position: {},
+      pointStyle: {},
+      labelStyle: {},
       labelConfig: {
-        data: ['收费站', '监控中心', '道路外场', '其他']
+        // ... 您的标签配置
+      },
+      widgetId: 'ww_8a729073ec038',
+      widgetLink: 'https://weatherwidget.org/',
+      widgetConfig: JSON.stringify({
+        "t":"responsive",
+        "lang":"en",
+        "sl_lpl":1,
+        "ids":["wl4467"],
+        "font":"Arial",
+        "sl_ics":"one_a",
+        "sl_sot":"celsius",
+        "cl_bkg":"image",
+        "cl_font":"#FFFFFF",
+        "cl_cloud":"#FFFFFF",
+        "cl_persp":"#81D4FA",
+        "cl_sun":"#FFC107",
+        "cl_moon":"#FFC107",
+        "cl_thund":"#FF5722",
+        "sl_tof":"3",
+        "el_wfc":3
+      })
+    }
+  },
+  mounted() {
+    //this.loadWeatherWidget();
+    //this.loadTomorrowSDK();
+  },
+  methods: {
+    onViewerReady(viewer) {
+      console.log('Viewer is ready')
+      this.viewer = viewer
+      // 设置初始视图
+      this.viewer.camera.setView({
+        destination: Cesium.Cartesian3.fromDegrees(114.177216, 22.302711, 1500),
+        orientation: {
+          heading: Cesium.Math.toRadians(0),
+          pitch: Cesium.Math.toRadians(-45),
+          roll: 0.0
+        }
+      });
+
+      // 初始化位置和样式
+      this.position = Cesium.Cartesian3.fromDegrees(114.177216, 22.302711, 100)
+      this.pointStyle = { pixelSize: 10, color: Cesium.Color.RED }
+      this.labelStyle = { text: '香港', font: '14pt sans-serif' }
+      const storyPromise = IonResource.fromAssetId(this.storyAssetId);
+      viewer.scene.primitives.add(new Cesium.Cesium3DTileset({ url: storyPromise }));
+    },
+    loadWidgetScript() {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://app2.weatherwidget.org/js/?id=${this.widgetId}`;
+      document.body.appendChild(script);
+    },
+    loadTomorrowSDK() {
+      if (window.__TOMORROW__) {
+        window.__TOMORROW__.renderWidget();
+        return;
       }
+
+      const script = document.createElement('script');
+      script.id = 'tomorrow-sdk';
+      script.src = 'https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js';
+      script.async = true;
+      script.onload = () => {
+        if (window.__TOMORROW__) {
+          window.__TOMORROW__.renderWidget();
+        }
+      };
+      document.head.appendChild(script);
+    },
+    loadWeatherWidget() {
+      console.log('Load weather widget')
+      const script = document.createElement('script');
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.src = 'https://windy.app/widget2/windy_stats_async.js?v31';
+      document.head.appendChild(script);
+    },
+    startMeasure() {
+      this.$refs.measureDistance.startNew()
+    },
+    flyToInitialView() {
+      this.viewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(114.177216, 22.302711, 1500),
+        orientation: {
+          heading: Cesium.Math.toRadians(0),
+          pitch: Cesium.Math.toRadians(-45),
+          roll: 0.0
+        },
+        duration: 3
+      })
     }
   }
 }
 </script>
 
-<style lang="less">
-.center-cmp {
+<style scoped>
+.cesium-container {
   width: 100%;
   height: 100%;
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+}
 
-  .cc-header {
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 30px;
-  }
+.control-panel {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+}
 
-  .cc-details {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    font-size: 32px;
-    align-items: center;
+.control-panel button {
+  margin: 5px;
+  padding: 5px 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
 
-    .card {
-      background-color: rgba(4,49,128,.6);
-      color: #08e5ff;
-      height: 70px;
-      width: 70px;
-      font-size: 45px;
-      font-weight: bold;
-      line-height: 70px;
-      text-align: center;
-      margin: 10px;
-    }
-  }
-
-  .cc-main-container {
-    position: relative;
-    flex: 1;
-    display: flex;
-
-    .ccmc-middle {
-      width: 50%;
-      height: 90%;
-
-      .active-ring-name {
-        font-size: 20px !important;
-      }
-    }
-
-    .ccmc-left, .ccmc-right {
-      width: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 24px;
-
-      span {
-        font-size: 40px;
-        font-weight: bold;
-      }
-
-      .station-info {
-        height: 80px;
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    .ccmc-left {
-      align-items: flex-end;
-
-      span {
-        margin-left: 20px;
-      }
-    }
-
-    .ccmc-right {
-      align-items: flex-start;
-
-      span {
-        margin-right: 20px;
-      }
-    }
-  }
-
-  .label-tag {
-    position: absolute;
-    width: 500px;
-    height: 30px;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.control-panel button:hover {
+  background: #45a049;
 }
 </style>
