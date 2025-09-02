@@ -2,6 +2,21 @@
 README.md
 docs/
 *.md
+node_modules/
+.git/
+.gitignore
+deploy/
+
+# VuePress related files that should be ignored
+.vuepress/
+vuepress.config.js
 
 # Only build from the electronic-file directory
 !demo/electronic-file/**
+!demo/electronic-file/package.json
+!demo/electronic-file/package-lock.json
+!demo/electronic-file/src/**
+!demo/electronic-file/public/**
+!demo/electronic-file/vue.config.js
+!demo/electronic-file/babel.config.js
+!demo/electronic-file/postcss.config.js
