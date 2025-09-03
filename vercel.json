@@ -1,9 +1,8 @@
 {
     "version": 2,
-    "name": "defectgpt-electronic-file",
-    "buildCommand": "cd demo/electronic-file && npm ci && npm run build",
+    "buildCommand": "cd demo/electronic-file && npm ci --include=dev && npm run build",
     "outputDirectory": "demo/electronic-file/dist",
-    "installCommand": "cd demo/electronic-file && npm ci",
+    "installCommand": "cd demo/electronic-file && npm ci --include=dev",
     "framework": null,
     "ignoreCommand": "exit 0",
     "env": {
@@ -15,7 +14,6 @@
             "NODE_ENV": "production"
         }
     },
-
     "regions": ["iad1"],
     "routes": [{
             "src": "/static/(.*)",
@@ -26,48 +24,18 @@
         {
             "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|svg))",
             "headers": {
-                "cache-control": "public, max-age=31536000, immutable"
+                "cache-control": "public, max-age=31536000, immutable",
+                "x-content-type-options": "nosniff"
             }
         },
         {
             "src": "/(.*)",
+            "headers": {
+                "x-frame-options": "DENY",
+                "x-content-type-options": "nosniff",
+                "referrer-policy": "strict-origin-when-cross-origin"
+            },
             "dest": "/index.html"
-        }
-    ],
-    "headers": [{
-            "source": "/static/(.*)",
-            "headers": [{
-                "key": "Cache-Control",
-                "value": "public, max-age=31536000, immutable"
-            }]
-        },
-        {
-            "source": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|svg))",
-            "headers": [{
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                },
-                {
-                    "key": "X-Content-Type-Options",
-                    "value": "nosniff"
-                }
-            ]
-        },
-        {
-            "source": "/(.*)",
-            "headers": [{
-                    "key": "X-Frame-Options",
-                    "value": "DENY"
-                },
-                {
-                    "key": "X-Content-Type-Options",
-                    "value": "nosniff"
-                },
-                {
-                    "key": "Referrer-Policy",
-                    "value": "strict-origin-when-cross-origin"
-                }
-            ]
         }
     ]
 }

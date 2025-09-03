@@ -12,6 +12,7 @@
     "@jiaminghi/data-view": "^2.4.1",
     "cesium": "^1.119.0",
     "core-js": "^2.6.5",
+    "regenerator-runtime": "^0.14.1",
     "vue": "^2.6.10",
     "vue-cesium": "^2.2.2"
   },
