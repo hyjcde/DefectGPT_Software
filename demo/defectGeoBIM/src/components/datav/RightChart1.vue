@@ -1,11 +1,11 @@
 <template>
   <div class="right-chart-1">
-    <div class="rc1-header">Defect Types by Material</div>
+    <div class="rc1-header">Data Collection Scenarios</div>
 
     <div class="rc1-chart-container">
       <div class="left">
-        <div class="number">262</div>
-        <div class="label">Total Defects</div>
+        <div class="number">6996</div>
+        <div class="label">Total Images</div>
       </div>
 
       <dv-capsule-chart class="right" :config="config" />
@@ -20,14 +20,12 @@ export default {
     return {
       config: {
         data: [
-          { name: 'Concrete', value: 125 },
-          { name: 'Steel', value: 66 },
-          { name: 'Glass', value: 23 },
-          { name: 'Masonry', value: 72 },
-          { name: 'Others', value: 19 }
+          { name: 'Low-texture', value: 3195 },
+          { name: 'Noisy BG', value: 2433 },
+          { name: 'High-contrast', value: 1368 }
         ],
-        unit: 'defects',
-        colors: ['#3498db', '#e74c3c', '#f1c40f', '#2ecc71', '#9b59b6']
+        unit: 'images',
+        colors: ['#3498db', '#e74c3c', '#f1c40f']
       }
     }
   }

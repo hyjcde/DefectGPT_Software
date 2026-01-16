@@ -1,7 +1,7 @@
 <template>
   <div class="left-chart-1">
-    <div class="lc1-header" style="font-size: 18px;font-weight: 600;">Building Façade Analysis</div>
-    <div class="lc1-details">Total Defects Detected: <span>430</span></div>
+    <div class="lc1-header" style="font-size: 18px;font-weight: 600;">CUBIT-InSeg Dataset Overview</div>
+    <div class="lc1-details">Total Annotated Instances: <span>62,178</span></div>
     <dv-capsule-chart class="lc1-chart" :config="config" />
     <dv-decoration-2 style="height:10px;" />
   </div>
@@ -16,27 +16,15 @@ export default {
         data: [
           {
             name: 'Cracks',
-            value: 167
+            value: 51865
           },
           {
             name: 'Spalling',
-            value: 67
-          },
-          {
-            name: 'Moisture',
-            value: 123
-          },
-          {
-            name: 'Corrosion',
-            value: 55
-          },
-          {
-            name: 'Other',
-            value: 18
+            value: 10313
           }
         ],
-        colors: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        unit: 'defects'
+        colors: ['#00baff', '#3de7c9'],
+        unit: 'instances'
       }
     }
   }

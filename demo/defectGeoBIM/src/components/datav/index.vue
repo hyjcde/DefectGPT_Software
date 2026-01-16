@@ -2,15 +2,15 @@
   <div id="data-view">
     <dv-full-screen-container>
       <div class="main-header">
-        <div class="mh-middle" style="margin: 0 200px 10px; font-family: 'Arial', sans-serif; font-size: 28px; font-weight: 700; width: 60%;">
-          Integrated GeoBIM Analytics and Digital Twin Platform
+        <div class="mh-middle" style="margin: 0 200px 10px; font-family: 'Arial', sans-serif; font-size: 24px; font-weight: 700; width: 60%; line-height: 1.2; text-align: center;">
+          CUPID: From Instance Segmentation to Physical Quantification for Façade Defect Assessment
         </div>
 
         <div class="mh-right">
           <dv-border-box-2
             style="width: 300px; height: 60px; font-weight: 700; line-height: 60px; text-align:center; margin-left:20px;"
           >
-            USR@CUHK & CU-Tech Ltd.
+            B. Zhao, J. Zhang, Y. Huang, et al. @ CUHK
           </dv-border-box-2>
         </div>
       </div>

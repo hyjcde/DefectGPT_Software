@@ -1,7 +1,7 @@
 <template>
   <div class="left-chart-2">
-    <div class="lc2-header">Defect Type Distribution</div>
-    <div class="lc2-details">Total Defects: <span>1523</span></div>
+    <div class="lc2-header">Defect Severity Level (SI)</div>
+    <div class="lc2-details">SI Accuracy: <span>88.57%</span></div>
     <dv-charts class="lc2-chart" :option="option"/>
     <dv-decoration-2 style="height:10px;"/>
   </div>
@@ -17,11 +17,10 @@ export default {
           {
             type: 'pie',
             data: [
-              { name: 'Cracks', value: 412 },
-              { name: 'Stains', value: 375 },
-              { name: 'Corrosion', value: 286 },
-              { name: 'Spalling', value: 224 },
-              { name: 'Others', value: 226 }
+              { name: 'Low (SI < 0.25)', value: 4.48 },
+              { name: 'Moderate (0.25 ≤ SI < 0.50)', value: 37.31 },
+              { name: 'Severe (0.50 ≤ SI < 0.75)', value: 20.90 },
+              { name: 'Critical (SI ≥ 0.75)', value: 31.34 }
             ],
             radius: ['45%', '65%'],
             insideLabel: {

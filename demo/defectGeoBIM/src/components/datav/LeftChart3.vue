@@ -1,7 +1,7 @@
 <template>
   <div className="left-chart-3">
-    <div className="lc3-header">Defect Distribution by Building Age</div>
-    <div className="lc3-details">Total Buildings Analyzed: <span>245</span></div>
+    <div className="lc3-header">SOTA Model Benchmarking (mAP)</div>
+    <div className="lc3-details">Top Model: <span>YOLOv9-e</span></div>
     <dv-capsule-chart className="lc3-chart" :config="config"/>
   </div>
 </template>
@@ -13,14 +13,14 @@ export default {
     return {
       config: {
         data: [
-          { name: '0-10 years', value: 78 },
-          { name: '11-20 years', value: 54 },
-          { name: '21-30 years', value: 123 },
-          { name: '31-40 years', value: 167 },
-          { name: '40+ years', value: 77 }
+          { name: 'YOLOv9-e', value: 83.9 },
+          { name: 'Hyper-YOLO-x', value: 83.9 },
+          { name: 'YOLOv8-x', value: 83.0 },
+          { name: 'EMO-5M', value: 81.6 },
+          { name: 'EfficientViT-M5', value: 80.0 }
         ],
-        colors: ['#2ECC40', '#3DE7C9', '#FFDC00', '#FF851B', '#FF4136'],
-        unit: 'buildings'
+        colors: ['#FF4136', '#FF851B', '#FFDC00', '#3DE7C9', '#2ECC40'],
+        unit: '%'
       }
     }
   }

@@ -1,14 +1,14 @@
 <template>
   <div class="bottom-charts">
     <div class="bc-chart-item">
-      <div class="bcci-header">Overall Defects Distribution</div>
+      <div class="bcci-header">Overall Defects</div>
       <dv-active-ring-chart :config="config1" />
       <Label-Tag :config="labelConfig" />
     </div>
     <dv-decoration-2 class="decoration-1" :reverse="true" style="width:5px;" />
 
     <div class="bc-chart-item">
-      <div class="bcci-header">North Façade Defects</div>
+      <div class="bcci-header">Southwest Façade</div>
       <dv-active-ring-chart :config="config2" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -16,7 +16,7 @@
     <dv-decoration-2 class="decoration-2" :reverse="true" style="width:5px;" />
 
     <div class="bc-chart-item">
-      <div class="bcci-header">East Façade Defects</div>
+      <div class="bcci-header">Southeast Façade</div>
       <dv-active-ring-chart :config="config3" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -24,7 +24,7 @@
     <dv-decoration-2 class="decoration-3" :reverse="true" style="width:5px;" />
 
     <div class="bc-chart-item">
-      <div class="bcci-header">South Façade Defects</div>
+      <div class="bcci-header">Northeast Façade</div>
       <dv-active-ring-chart :config="config4" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -46,22 +46,14 @@ export default {
         data: [
           {
             name: 'Cracks',
-            value: 356
+            value: 51865
           },
           {
             name: 'Spalling',
-            value: 215
-          },
-          {
-            name: 'Moisture',
-            value: 90
-          },
-          {
-            name: 'Other',
-            value: 317
+            value: 10313
           }
         ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
+        color: ['#00baff', '#3de7c9'],
         radius: '65%',
         activeRadius: '70%'
       },
@@ -70,22 +62,14 @@ export default {
         data: [
           {
             name: 'Cracks',
-            value: 615
+            value: 12450
           },
           {
             name: 'Spalling',
-            value: 322
-          },
-          {
-            name: 'Moisture',
-            value: 198
-          },
-          {
-            name: 'Other',
-            value: 80
+            value: 2310
           }
         ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
+        color: ['#00baff', '#3de7c9'],
         radius: '65%',
         activeRadius: '70%'
       },
@@ -94,22 +78,14 @@ export default {
         data: [
           {
             name: 'Cracks',
-            value: 452
+            value: 15600
           },
           {
             name: 'Spalling',
-            value: 512
-          },
-          {
-            name: 'Moisture',
-            value: 333
-          },
-          {
-            name: 'Other',
-            value: 255
+            value: 3120
           }
         ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
+        color: ['#00baff', '#3de7c9'],
         radius: '65%',
         activeRadius: '70%'
       },
@@ -118,28 +94,20 @@ export default {
         data: [
           {
             name: 'Cracks',
-            value: 156
+            value: 13200
           },
           {
             name: 'Spalling',
-            value: 415
-          },
-          {
-            name: 'Moisture',
-            value: 90
-          },
-          {
-            name: 'Other',
-            value: 210
+            value: 2800
           }
         ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
+        color: ['#00baff', '#3de7c9'],
         radius: '65%',
         activeRadius: '70%'
       },
 
       labelConfig: {
-        data: ['Cracks', 'Spalling', 'Moisture', 'Other']
+        data: ['Cracks', 'Spalling']
       }
     }
   }

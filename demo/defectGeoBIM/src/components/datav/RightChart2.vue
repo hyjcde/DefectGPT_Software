@@ -1,11 +1,11 @@
 <template>
   <div class="right-chart-2">
-    <div class="rc1-header">Defect Distribution by Severity</div>
+    <div class="rc1-header">Defect Registration Accuracy (RMSE)</div>
 
     <div class="rc1-chart-container">
       <div class="left">
-        <div class="number">1523</div>
-        <div>Total Defects</div>
+        <div class="number">7.15</div>
+        <div>Diag. RMSE (cm)</div>
       </div>
 
       <dv-charts class="right" :option="option" />
@@ -23,10 +23,9 @@ export default {
           {
             type: 'pie',
             data: [
-              { name: 'Critical', value: 152 },
-              { name: 'Major', value: 457 },
-              { name: 'Minor', value: 685 },
-              { name: 'Cosmetic', value: 229 }
+              { name: 'Horizontal', value: 4.75 },
+              { name: 'Vertical', value: 2.39 },
+              { name: 'Diagonal', value: 7.15 }
             ],
             radius: ['45%', '65%'],
             insideLabel: {
@@ -34,7 +33,7 @@ export default {
             },
             outsideLabel: {
               labelLineEndLength: 10,
-              formatter: '{percent}%\n{name}',
+              formatter: '{name}\n{value} cm',
               style: {
                 fontSize: 14,
                 fill: '#fff'
@@ -42,7 +41,7 @@ export default {
             }
           }
         ],
-        color: ['#FF4136', '#FF851B', '#FFDC00', '#2ECC40']
+        color: ['#3498db', '#2ecc71', '#e74c3c']
       }
     }
   }
