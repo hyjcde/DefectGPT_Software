@@ -1,8 +1,8 @@
 {
     "version": 2,
-    "buildCommand": "cd demo/electronic-file && npm ci --include=dev && npm run build",
-    "outputDirectory": "demo/electronic-file/dist",
-    "installCommand": "cd demo/electronic-file && npm ci --include=dev",
+    "buildCommand": "cd demo/defectGeoBIM && npm ci --include=dev && npm run build",
+    "outputDirectory": "demo/defectGeoBIM/dist",
+    "installCommand": "cd demo/defectGeoBIM && npm ci --include=dev",
     "framework": null,
     "ignoreCommand": "exit 0",
     "env": {

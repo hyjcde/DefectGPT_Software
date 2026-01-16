@@ -4,8 +4,8 @@
   "description": "Datav Document",
   "main": "index.js",
   "scripts": {
-    "dev": "echo \"This is a documentation project. Use demo/electronic-file for Vue app development\"",
-    "build": "echo \"This is a documentation project. Use demo/electronic-file for Vue app building\"",
+    "dev": "echo \"This is a documentation project. Use demo/defectGeoBIM for Vue app development\"",
+    "build": "echo \"This is a documentation project. Use demo/defectGeoBIM for Vue app building\"",
     "deploy": "node deploy/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -20,6 +20,6 @@ Mac的Retina及其他高分辨率屏幕下查看Demo可能出现缩放异常，�
 
 ## 机电设备电子档案
 
-![datav](/img/demo/electronic-file.jpg)
-* [Demo演示地址](http://datav.jiaminghi.com/demo/electronic-file/index.html)
-* [Demo源码地址](https://github.com/jiaming743/datav.jiaminghi.com/tree/master/demo/electronic-file)
+![datav](/img/demo/defectGeoBIM.jpg)
+* [Demo演示地址](http://datav.jiaminghi.com/demo/defectGeoBIM/index.html)
+* [Demo源码地址](https://github.com/jiaming743/datav.jiaminghi.com/tree/master/demo/defectGeoBIM)
